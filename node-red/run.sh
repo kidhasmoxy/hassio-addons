@@ -5,6 +5,9 @@ SSL=$(jq --raw-output ".ssl" $CONFIG_PATH)
 KEYFILE=$(jq --raw-output ".keyfile" $CONFIG_PATH)
 CERTFILE=$(jq --raw-output ".certfile" $CONFIG_PATH)
 
+if [ ! -d /addons/node-red]; then
+	mkdir /addons/node-red
+fi
 if [ ! -e /addons/node-red/settings.js ]; then
     cp /settings.js /addons/node-red/settings.js
 fi
